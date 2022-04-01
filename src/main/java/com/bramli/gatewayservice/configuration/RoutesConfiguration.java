@@ -12,9 +12,9 @@ public class RoutesConfiguration {
     RouteLocator routeLocator (RouteLocatorBuilder builder){
         return builder.routes()
                 .route((r)->r.path("r1","/customers/**")
-                        .uri("http://localhost:8081/"))
+                        .uri("lb://customer"))
                 .route((r)->r.path("r2","/products/**")
-                        .uri("http://localhost:8082/")).build();
+                        .uri("lb://inventory")).build();
 
     }
 
